@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>JavaScript and the DOM</title>
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <h1 id="myHeading">JavaScript and the DOM</h1>
-    <p>Making a web page interactive</p>    
-		<button id="toggleList">Hide List</button>
-    
-		<div class="list">
-		<p class=description>Things that are purple:</p>
-		<input type="text" class="description">
-		<button class="description">Change list description</button>
+</head>
 
-    <ul>
-      <li>grapes</li>
-      <li>amethyst</li>
-      <li>lavender</li>
-      <li>plums</li>
-    </ul>
-					<input type="text" class="addItemInput">
-		<button class="addItemButton">Add Item</button>
-		<button class="removeItemButton">Remove Last Item</button>
-		<button class="clearAllButton">Clear All</button>
-</div>
+<body>
+    <h1 id="myHeading">JavaScript and the DOM</h1>
+    <p>Making a web page interactive</p>
+    <button id="toggleList">Hide List</button>
+
+    <div class="list">
+        <p class=description>Things that are purple:</p>
+        <input type="text" class="description">
+        <button class="description">Change list description</button>
+
+        <ul>
+            <li>grapes
+                <button class="up">Up</button>
+                <button class="remove">Remove</button>
+            </li>
+            <li>amethyst
+                <button class="up">Up</button>
+                <button class="remove">Remove</button>
+            </li>
+            <li>lavender
+                <button class="up">Up</button>
+                <button class="remove">Remove</button>
+            </li>
+            <li>plums
+                <button class="up">Up</button>
+                <button class="remove">Remove</button>
+            </li>
+        </ul>
+        <input type="text" class="addItemInput">
+        <button class="addItemButton">Add Item</button>
+        <button class="removeItemButton">Remove Last Item</button>
+        <button class="clearAllButton">Clear All</button>
+    </div>
     <script src="app.js"></script>
-  </body>
+
+</body>
+
 </html>

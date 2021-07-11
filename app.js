@@ -10,6 +10,7 @@ const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 const clearAllButton = document.querySelector('button.clearAllButton');
 
+
 //removes item where "remove" button is clicked
 listUl.addEventListener('click', (event) => {
     if (event.target.tagName == 'BUTTON') {
@@ -28,8 +29,17 @@ listUl.addEventListener('click', (event) => {
             ul.insertBefore(li, prevLi);
         }
     }
-});
+    //moves down li when "down" is clicked
+    if (event.target.className == 'down') {
+        let li = event.target.parentNode;
+        let nextLi = li.nextElementSibling;
+        let ul = li.parentNode;
+        if (nextLi) {
+            ul.insertBefore(nextLi, li);
+        }
 
+    };
+});
 //makes letters capitalized and lowercase while hovering over and then removing pointer
 
 
@@ -67,15 +77,20 @@ addItemButton.addEventListener('click', () => {
     let li = document.createElement('li');
     let upBtn = document.createElement('button');
     let rmvBtn = document.createElement('button');
+    let downBtn = document.createElement('button');
+
     upBtn.setAttribute('class', 'up');
     upBtn.innerHTML = "Up";
     rmvBtn.setAttribute('class', 'remove');
     rmvBtn.innerHTML = "Remove";
+    downBtn.setAttribute('class', 'down');
+    downBtn.innerHTML = "Down";
 
     li.textContent = addItemInput.value; //takes the item added by user
     ul.appendChild(li); //adds item to list
-    li.appendChild(upBtn);
-    li.appendChild(rmvBtn);
+    li.appendChild(upBtn); //adds up button to new item
+    li.appendChild(downBtn); //adds down button to new item
+    li.appendChild(rmvBtn); //adds remove button to new item
 
     addItemInput.value = ''; //clears input field after item is added
 });

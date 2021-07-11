@@ -9,7 +9,28 @@ const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 const clearAllButton = document.querySelector('button.clearAllButton');
+const lis = listUl.children;
 
+//function buttons to LI elements 
+function attachListItemButtons(li) {
+    let upBtn = document.createElement('button');
+    let rmvBtn = document.createElement('button');
+    let downBtn = document.createElement('button');
+    upBtn.className = 'up';
+    upBtn.textContent = 'Up';
+    li.appendChild(upBtn)
+    rmvBtn.className = 'remove';
+    rmvBtn.textContent = 'Remove';
+    li.appendChild(rmvBtn)
+    downBtn.className = 'down';
+    downBtn.textContent = 'Down';
+    li.appendChild(downBtn);
+}
+
+//adds buttons to all li on page
+for (let i = 0; i < lis.length; i++) {
+    attachListItemButtons(lis[i]);
+}
 
 //removes item where "remove" button is clicked
 listUl.addEventListener('click', (event) => {
@@ -40,18 +61,8 @@ listUl.addEventListener('click', (event) => {
 
     };
 });
-//makes letters capitalized and lowercase while hovering over and then removing pointer
 
 
-//listDiv.addEventListener('mouseover', (event)=>{
-//	if(event.target.tagName == 'LI')	{event.target.textContent =event.target.textContent.toUpperCase();
-//																		}
-//
-//	});
-//listDiv.addEventListener('mouseout', (event)=>{
-//if(event.target.tagName == 'LI')	{event.target.textContent = event.target.textContent.toLowerCase();
-//																	}
-//													 });
 
 //hides and shows list
 toggleList.addEventListener('click', () => {
@@ -75,23 +86,11 @@ description.addEventListener('click', () => {
 addItemButton.addEventListener('click', () => {
     let ul = document.getElementsByTagName('ul')[0];
     let li = document.createElement('li');
-    let upBtn = document.createElement('button');
-    let rmvBtn = document.createElement('button');
-    let downBtn = document.createElement('button');
 
-    upBtn.setAttribute('class', 'up');
-    upBtn.innerHTML = "Up";
-    rmvBtn.setAttribute('class', 'remove');
-    rmvBtn.innerHTML = "Remove";
-    downBtn.setAttribute('class', 'down');
-    downBtn.innerHTML = "Down";
 
     li.textContent = addItemInput.value; //takes the item added by user
+    attachListItemButtons(li)
     ul.appendChild(li); //adds item to list
-    li.appendChild(upBtn); //adds up button to new item
-    li.appendChild(downBtn); //adds down button to new item
-    li.appendChild(rmvBtn); //adds remove button to new item
-
     addItemInput.value = ''; //clears input field after item is added
 });
 
